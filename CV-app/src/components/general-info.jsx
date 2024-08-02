@@ -6,16 +6,22 @@ import { useState } from "react";
 function GeneralInfo(){
 
     const [activeFields, setActiveFields] = useState(false);
+    const [nameValue, setNameValue] = useState("");
+    const [lastnameValue, setLastnameValue] = useState("");
+    const [phoneValue, setPhoneValue] = useState("");
+    const [emailValue, setEmailValue] = useState("")
 
     const handleActiveFields = (b) => {
         setActiveFields(b);
     }
 
+
     return(
         <>
             <section id="general">
-                <input type="text" placeholder="John" readOnly={activeFields} />
+                <input type="text" placeholder="John" readOnly={activeFields} onChange={(e) => setNameValue(e.target.value)} />
                 <input type="text" placeholder="Doe" readOnly={activeFields} />
+                <input type="email" name="email" id="emailInput" placeholder="johnDoe@example.com" />
                 <input type="number" placeholder="38169291765" readOnly={activeFields} />
                 <ActionBtns handleActiveFields={handleActiveFields} />
             </section>
