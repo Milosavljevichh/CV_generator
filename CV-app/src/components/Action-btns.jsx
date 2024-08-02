@@ -1,9 +1,20 @@
-function ActionBtns() {
+import { useState } from "react";
+
+function ActionBtns({handleActiveFields}) {
+    const [isEditable, setIsEditable] = useState(true);
+
     return (
         <>
             <div id="actionBtns">
-                <button>Edit</button>
-                <button>Submit</button>
+                <button onClick={() => {
+                    handleActiveFields(false)
+                    setIsEditable(true)
+                }}>Edit</button>
+
+                {isEditable && <button onClick={() => {
+                    handleActiveFields(true)
+                    setIsEditable(false)
+                }}>Submit</button>} 
             </div>
         </>
     )

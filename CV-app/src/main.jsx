@@ -10,10 +10,7 @@ import ActionBtns from './components/Action-btns.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GeneralInfo />
-    <ActionBtns />
     <EducationalInfo />
-    <ActionBtns />
     <PracticalExp />
-    <ActionBtns />
   </React.StrictMode>,
 )
