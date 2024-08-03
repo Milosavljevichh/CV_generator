@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-function ActionBtns({handleActiveFields}) {
-    const [isEditable, setIsEditable] = useState(true);
+function ActionBtns({changeActiveSection}) {
+    // const [isEditable, setIsEditable] = useState(true);
 
     return (
         <>
-            <div id="actionBtns">
+            {/* <div id="actionBtns">
                 <button onClick={() => {
                     handleActiveFields(false)
                     setIsEditable(true)
@@ -14,7 +14,11 @@ function ActionBtns({handleActiveFields}) {
                 {isEditable && <button onClick={() => {
                     handleActiveFields(true)
                     setIsEditable(false)
-                }}>Submit</button>} 
+                }}>Next</button>} 
+            </div> */}
+            <div>
+                <button onClick={() => changeActiveSection(-1)}>Back</button>
+                <button onClick={() => changeActiveSection(1)}>Next</button>
             </div>
         </>
     )

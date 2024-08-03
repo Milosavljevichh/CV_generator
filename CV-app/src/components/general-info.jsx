@@ -3,13 +3,9 @@
 import ActionBtns from "./Action-btns";
 import { useState } from "react";
 
-function GeneralInfo(){
+function GeneralInfo({handleNameValue, handleLastnameValue, handlePhoneValue, handleEmailValue}){
 
     const [activeFields, setActiveFields] = useState(false);
-    const [nameValue, setNameValue] = useState("");
-    const [lastnameValue, setLastnameValue] = useState("");
-    const [phoneValue, setPhoneValue] = useState("");
-    const [emailValue, setEmailValue] = useState("")
 
     const handleActiveFields = (b) => {
         setActiveFields(b);
@@ -19,10 +15,10 @@ function GeneralInfo(){
     return(
         <>
             <section id="general">
-                <input type="text" placeholder="John" readOnly={activeFields} onChange={(e) => setNameValue(e.target.value)} />
-                <input type="text" placeholder="Doe" readOnly={activeFields} />
-                <input type="email" name="email" id="emailInput" placeholder="johnDoe@example.com" />
-                <input type="number" placeholder="38169291765" readOnly={activeFields} />
+                <input type="text" placeholder="John" readOnly={activeFields} onChange={(e) => handleNameValue(e.target.value)} />
+                <input type="text" placeholder="Doe" readOnly={activeFields}onChange={(e) => handleLastnameValue(e.target.value)} />
+                <input type="email" name="email" id="emailInput" placeholder="johnDoe@example.com"onChange={(e) => handlePhoneValue(e.target.value)} />
+                <input type="number" placeholder="38169291765" readOnly={activeFields}onChange={(e) => handleEmailValue(e.target.value)} />
                 <ActionBtns handleActiveFields={handleActiveFields} />
             </section>
         </>
