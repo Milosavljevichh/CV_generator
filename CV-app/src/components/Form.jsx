@@ -68,7 +68,7 @@ function Form(){
                     </>
                 ))}
             </div>
-            <ActionBtns changeActiveSection={changeActiveSection}/>
+            <ActionBtns changeActiveSection={changeActiveSection} activeSection={activeSection} />
         </>
     )
 }
