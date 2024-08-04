@@ -1,4 +1,6 @@
 import { useState } from "react";
+import NextBtn from "./Next-btn";
+import SubmitBtn from "./Submit-btn";
 
 function ActionBtns({changeActiveSection, activeSection}) {
 
@@ -8,7 +10,7 @@ function ActionBtns({changeActiveSection, activeSection}) {
         <>
             <div>
                 <button onClick={() => changeActiveSection(-1)}>Back</button>
-                <button onClick={() => changeActiveSection(1)}>{activeSection + 1 == numberOfSections ? "Submit" : "Next"}</button>
+                {activeSection + 1 == numberOfSections ? <SubmitBtn /> : <NextBtn changeActiveSection={changeActiveSection} />}
             </div>
         </>
     )
