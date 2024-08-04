@@ -12,8 +12,8 @@ function Form(){
     
     const [activeSection, setActiveSection] = useState(0);
     const [generalInfo, setGeneralInfo] = useState({firstName:"", lastName:"", phone:"", email:""});
-    const [educationalInfo, setEducationalInfo] = useState({});
-    const [practicalInfo, setPracticalInfo] = useState({});
+    const [educationalInfo, setEducationalInfo] = useState({college:"", studyTitle:"",fromYear:"",toYear:""});
+    const [practicalInfo, setPracticalInfo] = useState({company:"",position:"",responsobilities:"",fromDate:"",toDate:""});
 
     const changeActiveSection = (i) => {
         if (activeSection + i >= 0 && activeSection + i < inputList.length) {setActiveSection(activeSection + i)};
@@ -43,6 +43,17 @@ function Form(){
         }
     }
 
+    const getValue = (section, input) => {
+        switch(section){
+            case "generalInfo":
+                return generalInfo[input];
+            case "educationalInfo":
+                return educationalInfo[input];
+            case "practicalInfo":
+                return practicalInfo[input];
+        }
+    }
+
     console.log(generalInfo);
     console.log(educationalInfo);
     console.log(practicalInfo);
@@ -53,11 +64,10 @@ function Form(){
                 {inputList[activeSection].map((input, i) => (
                     <>
                     <label key={i} htmlFor="input.id">{input.label}</label>
-                    <input key={i + 1} type={input.type} name={input.name} id={input.id} placeholder={input.placeholder} onChange={(e) => {saveInputInfo(input.name, input.setFunction, e.target.value)}}/>
+                    <input key={i + 1} type={input.type} value={getValue(input.setFunction, input.name)} name={input.name} id={input.id} placeholder={input.placeholder} onChange={(e) => {saveInputInfo(input.name, input.setFunction, e.target.value)}}/>
                     </>
                 ))}
             </div>
-            {/* TODO: Reset input values when 'Next' btn is clicked */}
             <ActionBtns changeActiveSection={changeActiveSection}/>
         </>
     )
