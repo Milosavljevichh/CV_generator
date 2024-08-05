@@ -1,6 +1,6 @@
-function SubmitBtn({changeActiveSection}){
+function SubmitBtn({submitForm}){
     return (
-        <button onClick={() => changeActiveSection(1)}>Submit</button>
+        <button onClick={() => submitForm()}>Submit</button>
     )
 };
 

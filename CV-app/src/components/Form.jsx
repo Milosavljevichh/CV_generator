@@ -14,6 +14,7 @@ function Form(){
     const [generalInfo, setGeneralInfo] = useState({firstName:"", lastName:"", phone:"", email:""});
     const [educationalInfo, setEducationalInfo] = useState({college:"", studyTitle:"",fromYear:"",toYear:""});
     const [practicalInfo, setPracticalInfo] = useState({company:"",position:"",responsobilities:"",fromDate:"",toDate:""});
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const changeActiveSection = (i) => {
         if (activeSection + i >= 0 && activeSection + i < inputList.length) {setActiveSection(activeSection + i)};
@@ -54,21 +55,32 @@ function Form(){
         }
     }
 
-    console.log(generalInfo);
-    console.log(educationalInfo);
-    console.log(practicalInfo);
+    const submitForm = () => {
+        setIsSubmitted(!isSubmitted);
+    }
 
     return (
-        <>
+        !isSubmitted ? <>
             <div>
                 {inputList[activeSection].map((input, i) => (
                     <>
+                    {/* TODO: Add restrictions */}
                     <label key={i} htmlFor="input.id">{input.label}</label>
                     <input key={i + 1} type={input.type} value={getValue(input.setFunction, input.name)} name={input.name} id={input.id} placeholder={input.placeholder} onChange={(e) => {saveInputInfo(input.name, input.setFunction, e.target.value)}}/>
                     </>
                 ))}
             </div>
-            <ActionBtns changeActiveSection={changeActiveSection} activeSection={activeSection} />
+            <ActionBtns changeActiveSection={changeActiveSection} activeSection={activeSection} submitForm={submitForm}/>
+        </> : 
+        <>
+            <h1>{generalInfo.firstName + " " + generalInfo.lastName}</h1>
+            <br />
+            <h6>{generalInfo.email + " " + generalInfo.phone}</h6>
+            <br />
+            <h2>Education:</h2>
+            <br />
+            <h4>{educationalInfo.college + ":" + educationalInfo.studyTitle + " - " + educationalInfo.fromYear + "-" + educationalInfo.toYear}</h4>
+            <button onClick={submitForm}>Edit</button>
         </>
     )
 }
