@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { inputList } from './data.jsx';
 import ActionBtns from './Action-btns.jsx';
+import "../styles/Form.css"
+import "../styles/CV.css"
 
 
 //form component holds the inputs value, to later transform it into html elements
@@ -61,26 +63,43 @@ function Form(){
 
     return (
         !isSubmitted ? <>
-            <div>
+            <div id='form'>
                 {inputList[activeSection].map((input, i) => (
                     <>
                     {/* TODO: Add restrictions */}
-                    <label key={i} htmlFor="input.id">{input.label}</label>
-                    <input key={i + 1} type={input.type} value={getValue(input.setFunction, input.name)} name={input.name} id={input.id} placeholder={input.placeholder} onChange={(e) => {saveInputInfo(input.name, input.setFunction, e.target.value)}}/>
+                    <div className='inputField'>
+                        <label key={i} htmlFor="input.id">{input.label}</label>
+                        <input key={i + 1} type={input.type} value={getValue(input.setFunction, input.name)} name={input.name} id={input.id} placeholder={input.placeholder} onChange={(e) => {saveInputInfo(input.name, input.setFunction, e.target.value)}}/>
+                    </div>
                     </>
                 ))}
             </div>
+            <div id='btnsContainer'>
             <ActionBtns changeActiveSection={changeActiveSection} activeSection={activeSection} submitForm={submitForm}/>
+            </div>
         </> : 
         <>
-            <h1>{generalInfo.firstName + " " + generalInfo.lastName}</h1>
-            <br />
-            <h6>{generalInfo.email + " " + generalInfo.phone}</h6>
-            <br />
-            <h2>Education:</h2>
-            <br />
-            <h4>{educationalInfo.college + ":" + educationalInfo.studyTitle + " - " + educationalInfo.fromYear + "-" + educationalInfo.toYear}</h4>
+        <div id='CV'>
+            <div id='general'>
+                <h1>{generalInfo.firstName + " " + generalInfo.lastName}</h1>
+                <h6>{generalInfo.email + " - " + generalInfo.phone}</h6>
+                <hr />
+            </div>
+            <div id='education'>
+                <br />
+                <h2>Education:</h2>
+                <br />
+                <h4>{educationalInfo.college + ":" + educationalInfo.studyTitle + " - " + educationalInfo.fromYear + "-" + educationalInfo.toYear}</h4>
+            </div>
+            <div id='practical'>
+                <br />
+                <h2>Practical Experience:</h2>
+                <h3>{"Company:" + practicalInfo.company}</h3>
+                <h4>{"Position:" + practicalInfo.position + " - " + practicalInfo.fromDate + "-" + practicalInfo.toDate}</h4>
+                <h5>{"Resposibilities:" + practicalInfo.responsobilities}</h5>
+            </div>
             <button onClick={submitForm}>Edit</button>
+        </div>
         </>
     )
 }

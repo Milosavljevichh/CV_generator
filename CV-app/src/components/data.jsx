@@ -94,7 +94,7 @@ export const inputList = [
         label: "From Date",
         name: "fromDate",
         id: "toDate",
-        type: "number",
+        type: "text",
         placeholder: "DD-MM-YYYY",
         setFunction: 'practicalInfo'
     },
@@ -102,7 +102,7 @@ export const inputList = [
         label: "To Date",
         name: "toDate",
         id: "toDate",
-        type: "number",
+        type: "text",
         placeholder: "DD-MM-YYYY",
         setFunction: 'practicalInfo'
     }

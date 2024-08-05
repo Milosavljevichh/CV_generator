@@ -1,0 +1,42 @@
+#form {
+    width: 26vw;
+    min-height: 30vh;
+    padding: 56px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.inputField {
+    width: 100%;
+    display: grid;
+    gap: 6px;
+}
+
+.inputField label{
+    font-size: 0.85rem;
+    justify-self: flex-start;
+}
+
+.inputField input {
+    height: 2.4rem;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px #fff solid;
+    background: rgba(221, 221, 221, 0.932);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: #212121;
+}
