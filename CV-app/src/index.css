@@ -29,6 +29,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: url("../public/bg.jpg");
+  background-attachment: fixed;
 }
 
 h1 {
@@ -43,8 +44,9 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ddddddcb;
   cursor: pointer;
+  color: #1d1d1d;
   transition: border-color 0.25s;
 }
 button:hover {
